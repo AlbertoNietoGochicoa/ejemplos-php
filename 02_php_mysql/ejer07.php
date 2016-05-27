@@ -13,5 +13,56 @@
   <p>Modificar el ejemplo 19 para que muestre sólo aquellas entradas que esten activas.</p>
   <p>Además, queremos se se muestren ordenadas por fecha, apareciendo primero las más nuevas.</p>
   <p>Como bonus, se plantea que sólo se muestren las 10 últimas entradas.</p>
+
+
+
+
+
+  <h1>Mostrar todas las filas de una tabla de MySQL</h1>
+  <p>Se conecta a una base de datos llamada "blog" en la máquina "localhost" con el usuario "root" y contraseña
+    "root".</p>
+  <p>Muestra las filas de la tabla "entrada" en una tabla HTML.</p>
+  <p>No hace comprobación de errores.</p>
+
+  <?php
+  // Abrir la conexión
+  $conexion = mysqli_connect("localhost", "root", "root", "blog");
+
+  // Formar la consulta (seleccionando todas las filas)
+  $q = "select * from entrada where activo=1 ORDER by FECHA DESC ";
+
+  // Ejecutar la consulta en la conexión abierta y obtener el "resultset" o abortar y mostrar el error
+  $r = mysqli_query($conexion, $q) or die(mysqli_error($conexion));
+
+  // Calcular el número de filas
+  $total = mysqli_num_rows($r);
+
+  // Mostrar el contenido de las filas, creando una tabla XHTML
+  if ($total > 0) {
+    echo '<table border="1">';
+    echo '<tr><th>Título</th><th>Texto</th><th>Fecha</th><th>Activo</th></tr>';
+
+    while ($fila = mysqli_fetch_assoc($r) ) {
+
+        echo "<tr>";
+        echo "<td>" . $fila['titulo'] . "</td>";
+        echo "<td>" . $fila['texto'] . "</td>";
+        echo "<td>" . $fila['fecha'] . "</td>";
+        echo "<td>" . $fila['activo'] . "</td>";
+        echo "</tr>";
+
+    }
+
+    echo '</table>';
+  }
+
+  // Cerrar la conexión
+  mysqli_close($conexion);
+  ?>
+
+
+
+
+
 </body>
 </html>

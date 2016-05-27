@@ -23,5 +23,33 @@
     <input type="text" id="F" name="F" value=""/>
     <input type="submit" id="enviar" name="enviar" value="Enviar"/>
   </form>
+
+<p>
+  <?php
+  $n = $_GET['N'];
+  $min= $_GET['I'];
+  $max= $_GET['F'];
+
+
+  ?>
+
+  <h1>Tabla de multiplicar</h1>
+  <table border="4">
+
+    <?php for($i=$min; $i<=$max; $i++)  { ?>
+
+      <tr >
+        <td ><?php echo $i ?></td>
+        <td>X</td>
+        <td><?php echo $n ?></td>
+        <td> = <?php $total=$i*$n;
+          echo "$total  " ?></td>
+      </tr>
+
+    <?php  }?>
+  </table>
+
+  </p>
+
 </body>
 </html>

@@ -19,5 +19,20 @@
     <input type="text" id="N" name="N" value=""/>
     <input type="submit" id="enviar" name="enviar" value="Enviar"/>
   </form>
+<p>
+
+<?php
+$i=0;
+$n2=0;
+
+$n2= ($_GET['N']);
+
+for($i=0; $i<=$n2; $i++){
+  echo "$i ";
+  echo "<br>";
+}
+
+?>
+</p>
 </body>
 </html>

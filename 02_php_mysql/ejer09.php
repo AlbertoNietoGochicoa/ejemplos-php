@@ -15,5 +15,9 @@
     los comentarios asociados.</p>
   <p>Al final de esa página tenemos que dar la opción de introducir un nuevo comentario, pidiendo los datos que sean
     necesarios.</p>
+
+
+    </div>
+  </form>
 </body>
 </html>

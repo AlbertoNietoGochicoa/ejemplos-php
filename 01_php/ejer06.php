@@ -7,6 +7,19 @@
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/colors.css">
   <link rel="stylesheet" href="../css/ejemplos.css">
+  <style>
+
+    body{
+      background-color: #CCFFCC;
+      border-style: groove;
+
+    }
+
+    table{
+      position: inherit;
+    }
+
+  </style>
 </head>
 <body>
   <h1>Ejercicio 6</h1>
@@ -22,5 +35,36 @@
     <input type="text" id="F" name="F" value=""/>
     <input type="submit" id="enviar" name="enviar" value="Enviar"/>
   </form>
+
+  <p>
+    <?php
+    $n = $_GET['N'];
+    $min= $_GET['I'];
+    $max= $_GET['F'];
+
+
+    ?>
+
+  <h1>Tabla de multiplicar</h1>
+  <table style="border: groove">
+
+    <?php for($i=$min; $i<=$max; $i++)  { ?>
+
+
+
+       <?php if ($i%2==0){ ?><tr style="background: white;"> <?php }else{ ?> <tr style="background:gainsboro"> <?php }?>
+        <td ><?php echo $i ?></td>
+        <td>X</td>
+        <td><?php echo $n ?></td>
+        <td> = <?php $total=$i*$n;
+          echo "$total  " ?></td>
+      </tr>
+
+
+    <?php  }?>
+  </table>
+
+  </p>
+
 </body>
 </html>
